@@ -1,4 +1,4 @@
-import express, {Response, Request, Express, NextFunction, ErrorRequestHandler} from 'express'
+import express, {Response, Request, Express, NextFunction} from 'express'
 import {UserRepository} from "./repositories/UserRepository"
 import {ApiParamsError} from "./errors"
 
@@ -6,7 +6,7 @@ const app: Express = express()
 
 export default function (port: Number, userRepo: UserRepository): void {
 
-  app.patch('/:userId/:amount', async (req: Request, res: Response, next: NextFunction) => {
+  app.patch("balance/:userId/:amount", async (req: Request, res: Response, next: NextFunction) => {
     try {
       const {userId, amount} = req.params
       if (!userId || !amount || isNaN(parseFloat(amount)) || isNaN(parseFloat(userId))) {
@@ -19,7 +19,7 @@ export default function (port: Number, userRepo: UserRepository): void {
     }
   })
 
-  app.get('/user/:userId', async (req: Request, res: Response, next) => {
+  app.get("/user/:userId", async (req: Request, res: Response, next) => {
     const {userId} = req.params
     try{
     if (!userId || isNaN(parseFloat(userId))) {
