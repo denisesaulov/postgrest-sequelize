@@ -6,7 +6,7 @@ const app: Express = express()
 
 export default function (port: Number, userRepo: UserRepository): void {
 
-  app.patch("balance/:userId/:amount", async (req: Request, res: Response, next: NextFunction) => {
+  app.patch("/balance/:userId/:amount", async (req: Request, res: Response, next: NextFunction) => {
     try {
       const {userId, amount} = req.params
       if (!userId || !amount || isNaN(parseFloat(amount)) || isNaN(parseFloat(userId))) {
