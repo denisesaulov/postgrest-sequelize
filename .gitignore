@@ -1,5 +1,5 @@
 node_modules
 build
 /test.sh
-/.DS_Store
-/.idea
+.DS_Store
+.idea/
