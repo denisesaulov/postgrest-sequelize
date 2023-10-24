@@ -1,3 +1,4 @@
 node_modules
 build
 /test.sh
+.DS_Store
